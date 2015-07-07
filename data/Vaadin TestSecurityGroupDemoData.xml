@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityGroupPermission groupId="FULLADMIN" permissionId="VAADINTEST_ADMIN"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="VAADINTEST_CREATE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="VAADINTEST_DELETE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="VAADINTEST_UPDATE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="VAADINTEST_VIEW"/>
+    <SecurityGroupPermission groupId="VIEWADMIN" permissionId="VAADINTEST_VIEW"/>
+    <SecurityGroupPermission groupId="BIZADMIN" permissionId="VAADINTEST_ADMIN"/>
+</entity-engine-xml>
