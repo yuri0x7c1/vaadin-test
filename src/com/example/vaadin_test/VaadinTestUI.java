@@ -1,36 +1,52 @@
 package com.example.vaadin_test;
 
-import org.ofbiz.entity.GenericDelegator;
-import org.ofbiz.service.LocalDispatcher;
+import org.ofbiz.base.util.Debug;
 
+import com.example.vaadin_test.views.EntityDataView;
+import com.example.vaadin_test.views.EntityView;
+import com.example.vaadin_test.views.ServiceView;
+import com.vaadin.navigator.Navigator;
 import com.vaadin.server.VaadinRequest;
-import com.vaadin.server.VaadinServlet;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.Button.ClickEvent;
-import com.vaadin.ui.Label;
+import com.vaadin.ui.CssLayout;
+import com.vaadin.ui.MenuBar;
+import com.vaadin.ui.MenuBar.MenuItem;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
 
+@SuppressWarnings("serial")
 public class VaadinTestUI extends UI {
+	
+	private Navigator navigator;
 
 	@Override
 	protected void init(VaadinRequest request) {
+		VerticalLayout mainLayout = new VerticalLayout();
+		setContent(mainLayout);
 		
-		final VerticalLayout layout = new VerticalLayout();
-		layout.setMargin(true);
-		setContent(layout);
-
-		Button button = new Button("Click Me!");
-		button.addClickListener(new Button.ClickListener() {
-			public void buttonClick(ClickEvent event) {
-				layout.addComponent(new Label("Hello, World! I'am vaadin test application inside ofbiz container!"));
-			}
+		MenuBar mainMenuBar = new MenuBar();
+		
+		mainMenuBar.addItem("Services", new MenuBar.Command() {
+		    public void menuSelected(MenuBar.MenuItem selectedItem) {
+		    	navigator.navigateTo("services");
+		    }
 		});
-		layout.addComponent(button);
 		
-		GenericDelegator delegator = (GenericDelegator) VaadinServlet.getCurrent().getServletContext().getAttribute("delegator");
-		LocalDispatcher dispatcher = (LocalDispatcher) VaadinServlet.getCurrent().getServletContext().getAttribute("dispatcher");
+		mainMenuBar.addItem("Entities", new MenuBar.Command() {
+		    public void menuSelected(MenuBar.MenuItem selectedItem) {
+		    	navigator.navigateTo("entities");
+		    }
+		});
+		
+		mainLayout.addComponent(mainMenuBar);
+				
+		CssLayout content = new CssLayout();
+		content.setSizeFull();
+		mainLayout.addComponent(content);
+		
+		navigator = new Navigator(this, content);
+		navigator.addView("services", ServiceView.class);
+		navigator.addView("entities", EntityView.class);
+		navigator.navigateTo("services");
 	}
-
 }
