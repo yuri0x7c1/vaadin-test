@@ -12,4 +12,6 @@ GenericDelegator delegator = (GenericDelegator) VaadinServlet.getCurrent().getSe
 LocalDispatcher dispatcher = (LocalDispatcher) VaadinServlet.getCurrent().getServletContext().getAttribute("dispatcher");
 ```
 
+Modify ofbiz_home/framework/catalina/ofbiz-component.xml `<property name="apps-context-reloadable" value="false"/>`, set value to "true", run `ant clean-catalina` and `ant clean-cache`
+
 Run `ant classes-dev` command inside ofbiz_home/hot-deploy/vaadin-test directory after code modifications(or set up your IDE custom builder) to apply vaadin application changes without ofbiz restarting
