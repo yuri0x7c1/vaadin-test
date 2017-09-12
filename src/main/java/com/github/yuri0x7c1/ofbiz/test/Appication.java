@@ -35,7 +35,7 @@ public class Appication extends SpringBootServletInitializer {
 
 	@Bean
 	public LocalDispatcher dispatcher() {
-		final String DISPATCHER_NAME = "demo1";
+		final String DISPATCHER_NAME = "vaadin-test";
 		log.info("Setup Service Engine Dispatcher with name: {}", DISPATCHER_NAME);
 		return ServiceContainer.getLocalDispatcher(DISPATCHER_NAME, delegator());
 	}
