@@ -1,11 +1,11 @@
 # vaadin-test
-OFBiz application based on Spring and Vaadin
+OFBiz application based on Spring Boot and Vaadin
 
 ## Features
 + use OFBiz Dispatcher and Delegator as Spring managed beans
 + ...
 
-## Quick start
+## Quick Start
 1. Download https://github.com/yuri0x7c1/vaadin-test/releases/download/0.0.1-SNAPSHOT/apache-ofbiz-16.11.03_vaadin-test-0.0.1-SNAPSHOT.7z file
 2. Extract and run `gradlew ofbiz`
 3. Go to https://localhost:8443/vaadin-test

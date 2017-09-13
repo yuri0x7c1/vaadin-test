@@ -9,7 +9,7 @@
 	<packaging>war</packaging>
 
 	<name>demo1</name>
-	<description>OFBiz component based on Spring and Vaadin</description>
+	<description>OFBiz component based on Spring Boot and Vaadin</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
